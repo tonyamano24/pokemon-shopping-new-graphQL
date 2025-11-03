@@ -1,0 +1,352 @@
+[
+  {
+    "Username": "user1",
+    "FullName": "John Doe",
+    "Password": "password1",
+    "Phone": "0800000001",
+    "Role": "User"
+  },
+  {
+    "Username": "user2",
+    "FullName": "Jane Smith",
+    "Password": "password2",
+    "Phone": "0800000002",
+    "Role": "User"
+  },
+  {
+    "Username": "user3",
+    "FullName": "Alice Johnson",
+    "Password": "password3",
+    "Phone": "0800000003",
+    "Role": "User"
+  },
+  {
+    "Username": "user4",
+    "FullName": "Bob Lee",
+    "Password": "password4",
+    "Phone": "0800000004",
+    "Role": "User"
+  },
+  {
+    "Username": "user5",
+    "FullName": "Charlie Kim",
+    "Password": "password5",
+    "Phone": "0800000005",
+    "Role": "User"
+  },
+  {
+    "Username": "user6",
+    "FullName": "Diana Evans",
+    "Password": "password6",
+    "Phone": "0800000006",
+    "Role": "User"
+  },
+  {
+    "Username": "user7",
+    "FullName": "Frank Wright",
+    "Password": "password7",
+    "Phone": "0800000007",
+    "Role": "User"
+  },
+  {
+    "Username": "user8",
+    "FullName": "Grace Hill",
+    "Password": "password8",
+    "Phone": "0800000008",
+    "Role": "User"
+  },
+  {
+    "Username": "user9",
+    "FullName": "Henry Adams",
+    "Password": "password9",
+    "Phone": "0800000009",
+    "Role": "User"
+  },
+  {
+    "Username": "user10",
+    "FullName": "Isabel Scott",
+    "Password": "password10",
+    "Phone": "0800000010",
+    "Role": "User"
+  },
+  {
+    "Username": "user11",
+    "FullName": "Jack Murphy",
+    "Password": "password11",
+    "Phone": "0800000011",
+    "Role": "User"
+  },
+  {
+    "Username": "user12",
+    "FullName": "Kathy Cox",
+    "Password": "password12",
+    "Phone": "0800000012",
+    "Role": "User"
+  },
+  {
+    "Username": "user13",
+    "FullName": "Liam Perez",
+    "Password": "password13",
+    "Phone": "0800000013",
+    "Role": "User"
+  },
+  {
+    "Username": "user14",
+    "FullName": "Mia Reed",
+    "Password": "password14",
+    "Phone": "0800000014",
+    "Role": "User"
+  },
+  {
+    "Username": "user15",
+    "FullName": "Noah Price",
+    "Password": "password15",
+    "Phone": "0800000015",
+    "Role": "User"
+  },
+  {
+    "Username": "user16",
+    "FullName": "Olivia Bell",
+    "Password": "password16",
+    "Phone": "0800000016",
+    "Role": "User"
+  },
+  {
+    "Username": "user17",
+    "FullName": "Paul Wood",
+    "Password": "password17",
+    "Phone": "0800000017",
+    "Role": "User"
+  },
+  {
+    "Username": "user18",
+    "FullName": "Quinn Brooks",
+    "Password": "password18",
+    "Phone": "0800000018",
+    "Role": "User"
+  },
+  {
+    "Username": "user19",
+    "FullName": "Ryan Cooper",
+    "Password": "password19",
+    "Phone": "0800000019",
+    "Role": "User"
+  },
+  {
+    "Username": "user20",
+    "FullName": "Sophia Ward",
+    "Password": "password20",
+    "Phone": "0800000020",
+    "Role": "User"
+  },
+  {
+    "Username": "user21",
+    "FullName": "Thomas Baker",
+    "Password": "password21",
+    "Phone": "0800000021",
+    "Role": "User"
+  },
+  {
+    "Username": "user22",
+    "FullName": "Uma Kelly",
+    "Password": "password22",
+    "Phone": "0800000022",
+    "Role": "User"
+  },
+  {
+    "Username": "user23",
+    "FullName": "Victor Howard",
+    "Password": "password23",
+    "Phone": "0800000023",
+    "Role": "User"
+  },
+  {
+    "Username": "user24",
+    "FullName": "Wendy Turner",
+    "Password": "password24",
+    "Phone": "0800000024",
+    "Role": "User"
+  },
+  {
+    "Username": "user25",
+    "FullName": "Xander Phillips",
+    "Password": "password25",
+    "Phone": "0800000025",
+    "Role": "User"
+  },
+  {
+    "Username": "user26",
+    "FullName": "Yara Campbell",
+    "Password": "password26",
+    "Phone": "0800000026",
+    "Role": "User"
+  },
+  {
+    "Username": "user27",
+    "FullName": "Zack Mitchell",
+    "Password": "password27",
+    "Phone": "0800000027",
+    "Role": "User"
+  },
+  {
+    "Username": "user28",
+    "FullName": "Abby Simmons",
+    "Password": "password28",
+    "Phone": "0800000028",
+    "Role": "User"
+  },
+  {
+    "Username": "user29",
+    "FullName": "Ben Foster",
+    "Password": "password29",
+    "Phone": "0800000029",
+    "Role": "User"
+  },
+  {
+    "Username": "user30",
+    "FullName": "Cora Long",
+    "Password": "password30",
+    "Phone": "0800000030",
+    "Role": "User"
+  },
+  {
+    "Username": "user31",
+    "FullName": "Dylan Hayes",
+    "Password": "password31",
+    "Phone": "0800000031",
+    "Role": "User"
+  },
+  {
+    "Username": "user32",
+    "FullName": "Ella Bryant",
+    "Password": "password32",
+    "Phone": "0800000032",
+    "Role": "User"
+  },
+  {
+    "Username": "user33",
+    "FullName": "Finn Morris",
+    "Password": "password33",
+    "Phone": "0800000033",
+    "Role": "User"
+  },
+  {
+    "Username": "user34",
+    "FullName": "Gia Hughes",
+    "Password": "password34",
+    "Phone": "0800000034",
+    "Role": "User"
+  },
+  {
+    "Username": "user35",
+    "FullName": "Hugo Ramirez",
+    "Password": "password35",
+    "Phone": "0800000035",
+    "Role": "User"
+  },
+  {
+    "Username": "user36",
+    "FullName": "Ivy Patel",
+    "Password": "password36",
+    "Phone": "0800000036",
+    "Role": "User"
+  },
+  {
+    "Username": "user37",
+    "FullName": "Jace Rogers",
+    "Password": "password37",
+    "Phone": "0800000037",
+    "Role": "User"
+  },
+  {
+    "Username": "user38",
+    "FullName": "Kira Russell",
+    "Password": "password38",
+    "Phone": "0800000038",
+    "Role": "User"
+  },
+  {
+    "Username": "user39",
+    "FullName": "Leo Griffin",
+    "Password": "password39",
+    "Phone": "0800000039",
+    "Role": "User"
+  },
+  {
+    "Username": "user40",
+    "FullName": "Maya West",
+    "Password": "password40",
+    "Phone": "0800000040",
+    "Role": "User"
+  },
+  {
+    "Username": "user41",
+    "FullName": "Nate Stone",
+    "Password": "password41",
+    "Phone": "0800000041",
+    "Role": "User"
+  },
+  {
+    "Username": "user42",
+    "FullName": "Opal Dean",
+    "Password": "password42",
+    "Phone": "0800000042",
+    "Role": "User"
+  },
+  {
+    "Username": "user43",
+    "FullName": "Piper Ray",
+    "Password": "password43",
+    "Phone": "0800000043",
+    "Role": "User"
+  },
+  {
+    "Username": "user44",
+    "FullName": "Quincy Shaw",
+    "Password": "password44",
+    "Phone": "0800000044",
+    "Role": "User"
+  },
+  {
+    "Username": "user45",
+    "FullName": "Ruby Cross",
+    "Password": "password45",
+    "Phone": "0800000045",
+    "Role": "User"
+  },
+  {
+    "Username": "user46",
+    "FullName": "Sean Lane",
+    "Password": "password46",
+    "Phone": "0800000046",
+    "Role": "User"
+  },
+  {
+    "Username": "user47",
+    "FullName": "Tara Hart",
+    "Password": "password47",
+    "Phone": "0800000047",
+    "Role": "User"
+  },
+  {
+    "Username": "user48",
+    "FullName": "Ulysses Wolfe",
+    "Password": "password48",
+    "Phone": "0800000048",
+    "Role": "User"
+  },
+  {
+    "Username": "user49",
+    "FullName": "Vera Miles",
+    "Password": "password49",
+    "Phone": "0800000049",
+    "Role": "User"
+  },
+  {
+    "Username": "user50",
+    "FullName": "Wade Bishop",
+    "Password": "password50",
+    "Phone": "0800000050",
+    "Role": "User"
+  }
+]
