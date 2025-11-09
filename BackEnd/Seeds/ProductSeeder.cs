@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Sentry;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -27,6 +28,11 @@ public static class ProductSeeder
 
         var random = new Random();
         var products = new List<Product>();
+        var mockProducts = await LoadMockProductsAsync();
+        if (mockProducts.Any())
+        {
+            products.AddRange(mockProducts);
+        }
 
         for (int i = 1; i <= 100; i++)
         {
@@ -66,5 +72,41 @@ public static class ProductSeeder
             context.Products.AddRange(products);
             context.SaveChanges();
         }
+    }
+
+    private static async Task<List<Product>> LoadMockProductsAsync()
+    {
+        var mockProducts = new List<Product>();
+        try
+        {
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Seeds", "DataJson", "mock_products.json");
+            if (!File.Exists(filePath))
+            {
+                return mockProducts;
+            }
+
+            var json = await File.ReadAllTextAsync(filePath);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var products = JsonSerializer.Deserialize<List<Product>>(json, options);
+            if (products != null)
+            {
+                foreach (var product in products)
+                {
+                    product.CreatedAt = DateTime.Now;
+                    product.UpdatedAt = DateTime.Now;
+                    mockProducts.Add(product);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to load mock products: {ex.Message}");
+        }
+
+        return mockProducts;
     }
 }

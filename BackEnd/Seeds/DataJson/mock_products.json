@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Pikachu Plush",
+    "description": "Soft collectible plush of Pikachu with embroidered cheeks.",
+    "price": 29.99,
+    "stock": 25,
+    "category": "merch",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+  },
+  {
+    "name": "Charizard Hoodie",
+    "description": "Zip-up hoodie inspired by Charizard's fiery wings.",
+    "price": 59.5,
+    "stock": 18,
+    "category": "apparel",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+  },
+  {
+    "name": "Bulbasaur Planter",
+    "description": "Ceramic succulent planter modeled after Bulbasaur.",
+    "price": 24.99,
+    "stock": 40,
+    "category": "home",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+  },
+  {
+    "name": "Squirtle Water Bottle",
+    "description": "Insulated bottle keeping drinks cold, featuring Squirtle prints.",
+    "price": 19.99,
+    "stock": 32,
+    "category": "accessories",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+  },
+  {
+    "name": "Eevee Keychain Set",
+    "description": "Mini acrylic keychains for Eevee and its evolutions.",
+    "price": 15.75,
+    "stock": 50,
+    "category": "collectibles",
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png"
+  }
+]
