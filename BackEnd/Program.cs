@@ -3,6 +3,8 @@ using Humanizer.Configuration;
 using itsc_dotnet_practice.Data;
 using itsc_dotnet_practice.Document;
 using itsc_dotnet_practice.Document.Interface;
+using itsc_dotnet_practice.GraphQL.Mutations;
+using itsc_dotnet_practice.GraphQL.Queries;
 using itsc_dotnet_practice.Models.Mapper;
 using itsc_dotnet_practice.Repositories;
 using itsc_dotnet_practice.Repositories.Interface;
@@ -81,12 +83,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Register HttpClient for external API calls (e.g., Pokémon API)
 builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddHealthChecks();
 
 // Authorization & Controllers
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services
+    .AddGraphQLServer()
+    .AddAuthorization()
+    .AddQueryType(d => d.Name("Query"))
+        .AddTypeExtension<ProductQueries>()
+        .AddTypeExtension<OrderQueries>()
+    .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<ProductMutations>()
+        .AddTypeExtension<OrderMutations>()
+        .AddTypeExtension<AuthMutations>();
 
 // Configure Swagger with your Document class providing security schemes
 builder.Services.AddSwaggerGen(options =>
@@ -158,6 +172,7 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGraphQL("/graphql");
 app.MapControllers();
 
 
