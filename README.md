@@ -304,6 +304,8 @@ mutation UpdateOrderStatus {
 
 ### Product Mutations (Admin เท่านั้น)
 
+- สามารถเลือกใช้ field `createProduct` หรือ alias ใหม่ `addProduct` เพื่อเพิ่มสินค้า (ทั้งคู่ต้องใช้ role = Admin)
+
 ```graphql
 mutation CreateProduct {
   createProduct(
@@ -314,6 +316,23 @@ mutation CreateProduct {
       stock: 20
       category: "bundle"
       imageUrl: "https://example.com/pika.png"
+    }
+  ) {
+    id
+    name
+    stock
+  }
+}
+
+mutation AddProduct {
+  addProduct(
+    input: {
+      name: "Eevee Figure"
+      description: "Collector edition"
+      price: 59.99
+      stock: 15
+      category: "figure"
+      imageUrl: "https://example.com/eevee.png"
     }
   ) {
     id

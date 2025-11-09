@@ -12,11 +12,19 @@ namespace itsc_dotnet_practice.GraphQL.Mutations;
 public class ProductMutations
 {
     [Authorize(Roles = new[] { "Admin" })]
+    public Task<Product> AddProductAsync(
+        ProductCreateInput input,
+        [Service] IProductService productService)
+    {
+        return CreateProductInternal(input, productService);
+    }
+
+    [Authorize(Roles = new[] { "Admin" })]
     public Task<Product> CreateProductAsync(
         ProductCreateInput input,
         [Service] IProductService productService)
     {
-        return productService.CreateProduct(input.ToRequest());
+        return CreateProductInternal(input, productService);
     }
 
     [Authorize(Roles = new[] { "Admin" })]
@@ -34,5 +42,12 @@ public class ProductMutations
         [Service] IProductService productService)
     {
         return await productService.DeleteProduct(id);
+    }
+
+    private static Task<Product> CreateProductInternal(
+        ProductCreateInput input,
+        IProductService productService)
+    {
+        return productService.CreateProduct(input.ToRequest());
     }
 }
