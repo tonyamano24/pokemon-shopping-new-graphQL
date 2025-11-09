@@ -1,12 +1,13 @@
 using System.Threading.Tasks;
 using HotChocolate;
+using HotChocolate.Types;
 using itsc_dotnet_practice.GraphQL.Types;
 using itsc_dotnet_practice.Models.Dtos;
 using itsc_dotnet_practice.Services.Interface;
 
 namespace itsc_dotnet_practice.GraphQL.Mutations;
 
-[ExtendObjectType(Name = "Mutation")]
+[ExtendObjectType("Mutation")]
 public class AuthMutations
 {
     private static GraphQLException BuildError(string message) =>

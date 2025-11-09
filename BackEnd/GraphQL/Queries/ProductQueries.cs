@@ -2,22 +2,23 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.Authorization;
+using HotChocolate.Types;
 using itsc_dotnet_practice.Models;
 using itsc_dotnet_practice.Services.Interface;
 
 namespace itsc_dotnet_practice.GraphQL.Queries;
 
-[ExtendObjectType(Name = "Query")]
+[ExtendObjectType("Query")]
 public class ProductQueries
 {
     [Authorize]
-    public Task<IEnumerable<Product>> GetProductsAsync(
+    public async Task<IEnumerable<Product>> GetProductsAsync(
         string? q,
         [Service] IProductService productService)
     {
         return string.IsNullOrWhiteSpace(q)
-            ? productService.GetAllProducts()
-            : productService.GetProductByQuery(q);
+            ? await productService.GetAllProducts()
+            : await productService.GetProductByQuery(q);
     }
 
     [Authorize]

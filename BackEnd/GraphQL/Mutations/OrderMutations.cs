@@ -4,13 +4,14 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.Authorization;
+using HotChocolate.Types;
 using itsc_dotnet_practice.GraphQL.Types;
 using itsc_dotnet_practice.Services.Interface;
 using Microsoft.AspNetCore.Http;
 
 namespace itsc_dotnet_practice.GraphQL.Mutations;
 
-[ExtendObjectType(Name = "Mutation")]
+[ExtendObjectType("Mutation")]
 public class OrderMutations
 {
     private static GraphQLException BuildError(string message) =>

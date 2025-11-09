@@ -1,13 +1,14 @@
 using System.Threading.Tasks;
 using HotChocolate;
 using HotChocolate.Authorization;
+using HotChocolate.Types;
 using itsc_dotnet_practice.GraphQL.Types;
 using itsc_dotnet_practice.Models;
 using itsc_dotnet_practice.Services.Interface;
 
 namespace itsc_dotnet_practice.GraphQL.Mutations;
 
-[ExtendObjectType(Name = "Mutation")]
+[ExtendObjectType("Mutation")]
 public class ProductMutations
 {
     [Authorize(Roles = new[] { "Admin" })]

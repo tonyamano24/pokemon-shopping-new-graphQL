@@ -209,6 +209,132 @@ Blackbox Exporter ใช้สำหรับ:
 
 Configuration อยู่ใน `Opentelemetry/blackbox/blackbox.yml`
 
+## GraphQL Usage (การใช้งาน GraphQL)
+
+### Endpoint & Playground
+- GraphQL server ถูกรันพร้อม API เมื่อ `docker compose up` หรือ `cd BackEnd && dotnet run` สำเร็จ แล้วสามารถเปิด UI (Banana Cake Pop) ได้ที่ http://localhost:8080/graphql
+- endpoint เดียวกันรองรับการยิง POST จาก Postman/curl โดยส่ง payload ตามรูปแบบ `{ "query": "...", "variables": { ... } }`
+
+### Authentication Flow (JWT)
+1. รัน `login` mutation เพื่อรับ JWT token (บัญชีตัวอย่างถูก seed ไว้ใน `BackEnd/Seeds/DataJson/mock_user.json` เช่น `user1`/`password1`)
+2. คัดลอกค่า `token` ที่ได้ แล้วตั้ง header `Authorization: Bearer <token>` ใน Banana Cake Pop (แท็บ **Headers**) หรือใน client ที่ใช้
+3. มีเพียง `login` และ `register` เท่านั้นที่ไม่ต้อง auth; query/mutation อื่นๆ ทั้งหมดจำเป็นต้องมี JWT
+4. Product mutations ต้องใช้ role = `Admin` หากต้องการทดสอบให้สร้าง/อัปเดตผู้ใช้ในฐานข้อมูลให้มี role ดังกล่าวก่อน
+
+#### ตัวอย่าง Login Mutation
+```graphql
+mutation Login {
+  login(input: { username: "user1", password: "password1" }) {
+    token
+    user { id username fullName role }
+  }
+}
+```
+
+### Product Queries
+`q` เป็น optional parameter ถ้าไม่ใส่จะดึงสินค้าทั้งหมด
+
+```graphql
+query Products {
+  products(q: "pikachu") {
+    id
+    name
+    price
+    stock
+    category
+    imageUrl
+  }
+}
+
+query ProductById {
+  productById(id: 1) {
+    id
+    name
+    description
+    price
+    stock
+  }
+}
+```
+
+### Order Operations
+- `orders(status: "pending")` จะคืนข้อมูลทุก order หากเป็น Admin แต่ถ้าเป็นผู้ใช้ธรรมดาจะเห็นเฉพาะ order ของตัวเอง
+- สถานะที่รองรับคือ `pending`, `confirm`, `reject`, `cancel` (ระบบจะปรับ stock ให้อัตโนมัติเมื่อ `confirm`/`reject`/`cancel`)
+
+```graphql
+query Orders {
+  orders(status: "pending") {
+    id
+    status
+    shippingAddress
+    createdAt
+    orderDetails {
+      productId
+      quantity
+      price
+      productName
+    }
+  }
+}
+
+mutation CreateOrder {
+  createOrder(
+    input: {
+      shippingAddress: "123 Poké Street"
+      orderDetails: [
+        { productId: 1, quantity: 2 }
+        { productId: 5, quantity: 1 }
+      ]
+    }
+  ) {
+    id
+    status
+    orderDetails { productId quantity price }
+  }
+}
+
+mutation UpdateOrderStatus {
+  updateOrderStatus(orderId: 10, status: "cancel") {
+    id
+    status
+    updatedAt
+  }
+}
+```
+
+### Product Mutations (Admin เท่านั้น)
+
+```graphql
+mutation CreateProduct {
+  createProduct(
+    input: {
+      name: "Pikachu Bundle"
+      description: "Limited booster set"
+      price: 199.99
+      stock: 20
+      category: "bundle"
+      imageUrl: "https://example.com/pika.png"
+    }
+  ) {
+    id
+    name
+    stock
+  }
+}
+
+# updateProduct(id: 1, input: { ... }) และ deleteProduct(id: 1) ใช้รูปแบบเดียวกัน
+```
+
+### Scripted Request ตัวอย่าง (curl)
+
+```bash
+TOKEN="<JWT จาก login>"
+curl -X POST http://localhost:8080/graphql \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{"query":"query { products { id name price } }"}'
+```
+
 ## Configuration Notes
 
 - **PostgreSQL**: ใช้ single database instance 
